@@ -1,0 +1,26 @@
+<!-- Modal -->
+<div class="modal-header">
+  <h5 class="modal-title" id="exampleModalLabel">QR SCAN</h5>
+  <button type="button" class="btn btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <div class="col-md-5 col-xs-12">
+      <qr-scanner #qrScanner
+                  [debug]="false"
+                  [canvasWidth]="250"
+                  [canvasHeight]="250"
+                  [stopAfterScan]="true"
+                  [updateTime]="500">
+      </qr-scanner>
+    </div>
+    <div class="col-md-7 col-xs-12">
+      <p [innerHTML]="(result$ | async).split('|').join('<br/>')"></p>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="bsModalRef.hide()">CLOSE</button>
+</div>
+
+

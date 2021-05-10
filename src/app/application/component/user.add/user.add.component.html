@@ -1,0 +1,249 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-md-12 col-xs-12">
+      <div class="card">
+        <div class="card-header">
+          <strong>Adicionar Usuario</strong>
+          <button type="button" class="pull-right btn btn-outline-primary"
+                  (click)="openModalWithComponent()">
+            <i class="fa fa-qrcode"></i> SCAN QR
+          </button>
+        </div>
+        <div class="card-body">
+          <form class="form-horizontal" [formGroup]="form">
+            <div class="row">
+              <div class="col-md-6 col-xs-12">
+
+                <!-- nombre -->
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label">Nombre</label>
+                  <div class="col-md-9">
+                    <input type="text"
+                           formControlName="nombre"
+                           [class.text-danger]="form.get('nombre').touched && form.get('nombre').errors"
+                           [class.border-danger]="form.get('nombre').touched && form.get('nombre').errors"
+                           class="form-control">
+                  </div>
+                </div>
+
+                <!-- apellidos -->
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label">Apellidos</label>
+                  <div class="col-md-9">
+                    <input type="text"
+                           formControlName="apellidos"
+                           [class.text-danger]="form.get('apellidos').touched && form.get('apellidos').errors"
+                           [class.border-danger]="form.get('apellidos').touched && form.get('apellidos').errors"
+                           class="form-control">
+                  </div>
+                </div>
+
+                <!-- sexo -->
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label">Sexo</label>
+                  <div class="col-md-9">
+
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio"
+                             [class.text-danger]="form.get('sexo').touched && form.get('sexo').errors"
+                             [class.border-danger]="form.get('sexo').touched && form.get('sexo').errors"
+                             formControlName="sexo" value="F" checked>
+                      <label class="form-check-label"
+                             [class.text-danger]="form.get('sexo').touched && form.get('sexo').errors"
+                             [class.border-danger]="form.get('sexo').touched && form.get('sexo').errors">
+                        F
+                      </label>
+                    </div>
+
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio"
+                             [class.text-danger]="form.get('sexo').touched && form.get('sexo').errors"
+                             [class.border-danger]="form.get('sexo').touched && form.get('sexo').errors"
+                             formControlName="sexo" value="M">
+                      <label class="form-check-label"
+                             [class.text-danger]="form.get('sexo').touched && form.get('sexo').errors"
+                             [class.border-danger]="form.get('sexo').touched && form.get('sexo').errors">
+                        M
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="col-md-6 col-xs-12">
+                <!-- cedula -->
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label">Cédula</label>
+                  <div class="col-md-9">
+                    <input type="text"
+                           formControlName="cedula"
+                           [class.text-danger]="form.get('cedula').touched && form.get('cedula').errors"
+                           [class.border-danger]="form.get('cedula').touched && form.get('cedula').errors"
+                           class="form-control">
+                  </div>
+                </div>
+
+                <!-- expedida -->
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label">Expedida</label>
+                  <div class="col-md-9">
+                    <input type="date"
+                           min="{{ getCurrentDate() | date: 'YYYY-MM-dd' }}"
+                           formControlName="expedida"
+                           [class.text-danger]="form.get('expedida').touched && form.get('expedida').errors"
+                           [class.border-danger]="form.get('expedida').touched && form.get('expedida').errors"
+                           class="form-control">
+                  </div>
+                </div>
+
+                <!-- expira -->
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label">Expira</label>
+                  <div class="col-md-9">
+                    <input type="date"
+                           formControlName="expira"
+                           min="{{ getCurrentDate() | date: 'YYYY-MM-dd' }}"
+                           [class.text-danger]="form.get('expira').touched && form.get('expira').errors"
+                           [class.border-danger]="form.get('expira').touched && form.get('expira').errors"
+                           class="form-control">
+                  </div>
+                </div>
+
+                <!-- barcode -->
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label">Barcode</label>
+                  <div class="col-md-9">
+                    <input type="text"
+                           formControlName="barcode"
+                           [class.text-danger]="form.get('barcode').touched && form.get('barcode').errors"
+                           [class.border-danger]="form.get('barcode').touched && form.get('barcode').errors"
+                           class="form-control">
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="col-md-6 col-xs-12">
+                <!-- lugar_de_nacimiento_1 -->
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label">Lugar de Nacimiento</label>
+                  <div class="col-md-9">
+                    <input type="text"
+                           formControlName="lugar_de_nacimiento_1"
+                           [class.text-danger]="form.get('lugar_de_nacimiento_1').touched && form.get('lugar_de_nacimiento_1').errors"
+                           [class.border-danger]="form.get('lugar_de_nacimiento_1').touched && form.get('lugar_de_nacimiento_1').errors"
+                           class="form-control">
+                  </div>
+                </div>
+
+                <!-- lugar_de_nacimiento_2 -->
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label">País de Nacimiento</label>
+                  <div class="col-md-9">
+                    <input type="text"
+                           formControlName="lugar_de_nacimiento_2"
+                           [class.text-danger]="form.get('lugar_de_nacimiento_2').touched && form.get('lugar_de_nacimiento_2').errors"
+                           [class.border-danger]="form.get('lugar_de_nacimiento_2').touched && form.get('lugar_de_nacimiento_2').errors"
+                           class="form-control">
+                  </div>
+                </div>
+
+                <!-- fecha_de_nacimiento -->
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label">Fecha de Nacimiento</label>
+                  <div class="col-md-9">
+                    <input type="text"
+                           formControlName="fecha_de_nacimiento"
+                           max="{{ getCurrentDate() | date: 'YYYY-MM-dd' }}"
+                           [class.text-danger]="form.get('fecha_de_nacimiento').touched && form.get('fecha_de_nacimiento').errors"
+                           [class.border-danger]="form.get('fecha_de_nacimiento').touched && form.get('fecha_de_nacimiento').errors"
+                           class="form-control">
+                  </div>
+                </div>
+
+                <!-- nacionalidad -->
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label">Nacionalidad</label>
+                  <div class="col-md-9">
+                    <input type="text"
+                           formControlName="nacionalidad"
+                           [class.text-danger]="form.get('nacionalidad').touched && form.get('nacionalidad').errors"
+                           [class.border-danger]="form.get('nacionalidad').touched && form.get('nacionalidad').errors"
+                           class="form-control">
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="col-md-6 col-xs-12">
+
+                <!-- padre_cedula -->
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label">Padre / Cédula</label>
+                  <div class="col-md-9">
+                    <input type="text"
+                           formControlName="padre_cedula"
+                           [class.text-danger]="form.get('padre_cedula').touched && form.get('padre_cedula').errors"
+                           [class.border-danger]="form.get('padre_cedula').touched && form.get('padre_cedula').errors"
+                           class="form-control">
+                  </div>
+                </div>
+
+                <!-- padre_nombre_completo -->
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label">Padre / Nombre Completo</label>
+                  <div class="col-md-9">
+                    <input type="text"
+                           formControlName="padre_nombre_completo"
+                           [class.text-danger]="form.get('padre_nombre_completo').touched && form.get('padre_nombre_completo').errors"
+                           [class.border-danger]="form.get('padre_nombre_completo').touched && form.get('padre_nombre_completo').errors"
+                           class="form-control">
+                  </div>
+                </div>
+
+                <!-- madre_cedula -->
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label">Madre / Cédula</label>
+                  <div class="col-md-9">
+                    <input type="text"
+                           formControlName="madre_cedula"
+                           [class.text-danger]="form.get('madre_cedula').touched && form.get('madre_cedula').errors"
+                           [class.border-danger]="form.get('madre_cedula').touched && form.get('madre_cedula').errors"
+                           class="form-control">
+                  </div>
+                </div>
+
+                <!-- madre_nombre_completo -->
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label">Madre / Nombre Completo</label>
+                  <div class="col-md-9">
+                    <input type="text"
+                           formControlName="madre_nombre_completo"
+                           [class.text-danger]="form.get('madre_nombre_completo').touched && form.get('madre_nombre_completo').errors"
+                           [class.border-danger]="form.get('madre_nombre_completo').touched && form.get('madre_nombre_completo').errors"
+                           class="form-control">
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </form>
+        </div>
+        <div class="card-footer">
+          <button type="submit"
+                  class="btn btn-sm btn-primary"
+                  [disabled]="!form.valid"
+                  (click)="onSave()">
+            <i class="fa fa-dot-circle-o"></i> ACEPTAR
+          </button>
+          <button type="reset"
+                  class="btn btn-sm btn-danger"
+                  (click)="onCancel()">
+            <i class="fa fa-ban"></i> CANCELAR
+          </button>
+        </div>
+      </div>
+    </div>
+  </div><!--/.row-->
+</div>
